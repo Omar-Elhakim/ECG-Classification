@@ -63,6 +63,24 @@ print(f"The signal in this file is classified as: {result}")
 # The signal in this file is classified as: PVC
 ```
 
+## Results
+
+On the 400 held-out beats in `Normal_Test.txt` + `PVC_Test.txt` (disjoint from the training beats), the
+5-NN classifier separates the two classes perfectly:
+
+```
+              precision    recall  f1-score   support
+
+      Normal       1.00      1.00      1.00       200
+         PVC       1.00      1.00      1.00       200
+
+    accuracy                           1.00       400
+```
+
+This says less about the classifier than about the features: once a beat is band-pass filtered and reduced
+to its level-2 `db4` coefficients, Normal and PVC beats occupy clearly separated regions, so even a simple
+distance-based classifier gets them all right.
+
 ## Project structure
 
 ```
@@ -70,8 +88,9 @@ main.ipynb           # the whole pipeline: load → filter → wavelet → norma
 Data/                # MIT-BIH beats (train/test splits + individual sample beats)
 RequiredDetails.pdf  # original task specification
 requirements.txt
+LICENSE
 ```
 
 ## License
 
-No license file is present yet, so no usage rights are granted by default.
+Released under the [MIT License](LICENSE).
