@@ -42,12 +42,14 @@ Python · NumPy · SciPy (`signal.butter`, `signal.lfilter`) · PyWavelets · pa
 git clone https://github.com/Omar-Elhakim/ECG-Classification.git
 cd ECG-Classification
 
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+conda env create -f environment.yml
+conda activate ecg
 
 jupyter notebook main.ipynb
 ```
+
+If you'd rather not use conda, the same dependencies are listed in `requirements.txt` for `pip install -r
+requirements.txt`.
 
 Then run the cells top to bottom. Paths in the notebook are relative to the repository root, so launch
 Jupyter from there.
@@ -87,6 +89,7 @@ distance-based classifier gets them all right.
 main.ipynb           # the whole pipeline: load → filter → wavelet → normalise → KNN → evaluate
 Data/                # MIT-BIH beats (train/test splits + individual sample beats)
 RequiredDetails.pdf  # original task specification
+environment.yml      # conda environment (pip alternative: requirements.txt)
 requirements.txt
 LICENSE
 ```

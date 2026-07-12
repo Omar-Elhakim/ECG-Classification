@@ -1,0 +1,13 @@
+name: ecg
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - pywavelets
+  - plotly
+  - matplotlib
+  - notebook
